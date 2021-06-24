@@ -1,14 +1,16 @@
-import { Button } from './components/button'
+import { BrowserRouter, Route } from 'react-router-dom';
+import { AuthContextProvider } from "./context/AuthContext";
+import { Home } from './pages/Home'
+import { NewRoom } from "./pages/NewRoom";
 
 function App() {
   return (
-    //precisa ter uma div pai pra conter os elements tsx
-    <div>
-      <Button/>
-      <Button/>
-      <Button/>
-      <Button/>
-    </div>
+    <BrowserRouter>
+        <AuthContextProvider>
+            <Route path="/" exact component={Home} />
+            <Route path="/rooms/new" component={NewRoom} />
+        </AuthContextProvider>
+    </BrowserRouter>
   );
 }
 
